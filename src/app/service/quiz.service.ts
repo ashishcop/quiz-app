@@ -7,7 +7,7 @@ const QUIZ_DATA: QuizEntry[] = (mockDataClass as any).default;
   providedIn: 'root',
 })
 export class QuizService {
-  entry = signal(QUIZ_DATA);
+  private readonly entry = signal(QUIZ_DATA);
 
   getEntry() {
     return this.entry.asReadonly();
