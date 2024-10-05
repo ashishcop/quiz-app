@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, Signal, signal } from '@angular/core';
 import * as mockDataClass from './../../../mock-data.json';
 import { QuizEntry } from '../model/quiz-entry';
 const QUIZ_DATA: QuizEntry[] = (mockDataClass as any).default;
@@ -7,9 +7,9 @@ const QUIZ_DATA: QuizEntry[] = (mockDataClass as any).default;
   providedIn: 'root',
 })
 export class QuizService {
-  private readonly entry = signal(QUIZ_DATA);
+  private readonly entries = signal<QuizEntry[]>(QUIZ_DATA);
 
-  getEntry() {
-    return this.entry.asReadonly();
+  getEntries(): Signal<QuizEntry[]> {
+    return this.entries.asReadonly();
   }
 }
