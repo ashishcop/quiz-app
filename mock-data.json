@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "question": "what is your name",
+    "answer": "ashish",
+    "incorrect_answer": ["alok", "amit", "mayank"]
+  },
+  {
+    "id": 2,
+    "question": "what is your city",
+    "answer": "lucknow",
+    "incorrect_answer": ["banaras", "bangalore", "kolkata"]
+  },
+  {
+    "id": 3,
+    "question": "what is your school",
+    "answer": "exon",
+    "incorrect_answer": ["lps", "cms", "balbahrati"]
+  }
+]
