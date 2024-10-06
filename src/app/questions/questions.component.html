@@ -1,2 +1,13 @@
-<p data-id="questionId">2=1</p>
-<div><button data-id="answerid">answers</button></div>
+<ng-container *ngFor="let entry of randomEntries()">
+  <p data-id="questionId">{{ entry.question }}</p>
+  <div>
+    <button
+      data-id="answerid"
+      *ngFor="let answer of allAnswer(entry.incorrect_answers, entry.answer)"
+      [ngClass]="{ primary: isSelected(entry, answer) }"
+      (click)="onSelection(entry, answer)"
+    >
+      {{ answer }}
+    </button>
+  </div>
+</ng-container>
