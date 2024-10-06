@@ -1,2 +1,13 @@
-<p data-id="questionId">2=1</p>
-<div><button data-id="answerid">answers</button></div>
+<p data-id="questionId">{{ entry().question }}</p>
+<div>
+  <button
+    data-id="answerid"
+    [ngClass]="{ primary: isSelected(answer) }"
+    *ngFor="let answer of allAnswer(entry().incorrect_answers, entry().answer)"
+    (click)="onSelection(entry(), answer)"
+  >
+    {{ answer }}
+  </button>
+</div>
+
+{{ selectedAnswer }}

@@ -1,0 +1,6 @@
+<ng-container *ngFor="let entry of randomEntries()">
+  <app-questions
+    [entry]="entry"
+    (quizChange)="onQuizChange($event)"
+  ></app-questions>
+</ng-container>

@@ -4,3 +4,10 @@ export interface QuizEntry {
   answer: string;
   incorrect_answers: string[];
 }
+
+export interface SelectedAnswer {
+  // quiz question details
+  entry: QuizEntry;
+  // quiz question selected answer
+  selectedAnswer: string;
+}
