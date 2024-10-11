@@ -3,7 +3,7 @@
   <div>
     <button
       data-id="answerid"
-      *ngFor="let answer of allAnswer(entry.incorrect_answers, entry.answer)"
+      *ngFor="let answer of entry.options"
       [ngClass]="{ primary: isSelected(entry, answer) }"
       (click)="onSelection(entry, answer)"
     >

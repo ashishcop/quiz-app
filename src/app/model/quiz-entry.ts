@@ -10,6 +10,10 @@ export interface SelectedAnswer {
   selectedAnswer: string;
 }
 
+export interface Entry extends QuizEntry {
+  options: string[];
+}
+
 export interface QuizChange {
   // all the quiz enties and their selectedAnswers
   allSelections: SelectedAnswer[];

@@ -1,4 +1,9 @@
-import { QuizChange, QuizEntry, SelectedAnswer } from './../model/quiz-entry';
+import {
+  Entry,
+  QuizChange,
+  QuizEntry,
+  SelectedAnswer,
+} from './../model/quiz-entry';
 import {
   Component,
   computed,
@@ -25,7 +30,11 @@ export class QuestionsComponent {
 
   entries = this.quizService.getEntries();
 
-  randomEntries = computed(() => shuffle(this.entries()));
+  randomEntries = computed(() =>
+    this.entries().map((e) => {
+      return { ...e, options: shuffle(e.incorrect_answers.concat([e.answer])) };
+    })
+  );
 
   selections: SelectedAnswer[] = [];
 
@@ -53,10 +62,6 @@ export class QuestionsComponent {
     } else {
       this.selections.push(selection);
     }
-  }
-
-  allAnswer(incorrect_answers: string[], answer: string) {
-    return incorrect_answers.concat([answer]);
   }
 
   isSelected(entry: QuizEntry, answer: string) {
